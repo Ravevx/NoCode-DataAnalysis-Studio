@@ -40,9 +40,9 @@ def fill_na(df: pd.DataFrame, cols, strategy="mean", value=None) -> pd.DataFrame
         elif strategy == "constant":
             df[c] = df[c].fillna(value)
         elif strategy == "ffill":
-            df[c] = df[c].fillna(method="ffill")
+            df[c] = df[c].ffill()
         elif strategy == "bfill":
-            df[c] = df[c].fillna(method="bfill")
+            df[c] = df[c].bfill()
         else:
             raise ValueError(f"Unknown strategy: {strategy}")
     return df
